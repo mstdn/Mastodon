@@ -22,7 +22,7 @@ export default class CommunityTimeline extends React.PureComponent {
   };
 
   render () {
-    const { intl, hasUnread, columnId, multiColumn } = this.props;
+    const { intl, columnId, multiColumn } = this.props;
 
     return (
       <Timeline

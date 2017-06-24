@@ -22,7 +22,7 @@ export default class PublicTimeline extends React.PureComponent {
   };
 
   render () {
-    const { intl, columnId, hasUnread, multiColumn } = this.props;
+    const { intl, columnId, multiColumn } = this.props;
 
     return (
       <Timeline

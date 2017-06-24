@@ -30,7 +30,7 @@ export default class HashtagTimeline extends React.PureComponent {
   }
 
   render () {
-    const { hasUnread, columnId, multiColumn } = this.props;
+    const { columnId, multiColumn } = this.props;
     const { id } = this.props.params;
 
     return (

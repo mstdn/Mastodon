@@ -27,7 +27,7 @@ export default class HomeTimeline extends React.PureComponent {
   };
 
   render () {
-    const { intl, hasUnread, hasFollows, columnId, multiColumn } = this.props;
+    const { intl, hasFollows, columnId, multiColumn } = this.props;
 
     let emptyMessage;
 
