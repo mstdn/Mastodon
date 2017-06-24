@@ -40,7 +40,6 @@ export default class HomeTimeline extends React.PureComponent {
     return (
       <Timeline
         expand={expandHomeTimeline}
-        hasUnread={hasUnread}
         columnName='HOME'
         columnId={columnId}
         mulitColumn={multiColumn}

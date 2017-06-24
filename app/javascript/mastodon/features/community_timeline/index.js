@@ -29,7 +29,6 @@ export default class CommunityTimeline extends React.PureComponent {
         expand={expandCommunityTimeline}
         refresh={refreshCommunityTimeline}
         streamId='public:local'
-        hasUnread={hasUnread}
         columnName='COMMUNITY'
         columnId={columnId}
         mulitColumn={multiColumn}

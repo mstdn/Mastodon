@@ -29,7 +29,6 @@ export default class PublicTimeline extends React.PureComponent {
         expand={expandPublicTimeline}
         refresh={refreshPublicTimeline}
         streamId='public'
-        hasUnread={hasUnread}
         columnName='PUBLIC'
         columnId={columnId}
         mulitColumn={multiColumn}

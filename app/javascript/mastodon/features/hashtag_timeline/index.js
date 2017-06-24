@@ -38,7 +38,6 @@ export default class HashtagTimeline extends React.PureComponent {
         expand={this.expand}
         refresh={this.refresh}
         streamId={`hashtag&tag=${id}`}
-        hasUnread={hasUnread}
         columnName='HASHTAG'
         columnProps={{ id }}
         columnId={columnId}
