@@ -1,17 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import StatusListContainer from '../features/ui/containers/status_list_container';
-import Column from './column';
-import ColumnHeader from './column_header';
+import StatusListContainer from '../ui/containers/status_list_container';
+import Column from '../../components/column';
+import ColumnHeader from '../../components/column_header';
 import {
   updateTimeline,
   deleteFromTimelines,
   connectTimeline,
   disconnectTimeline,
-} from '../actions/timelines';
-import { addColumn, removeColumn, moveColumn } from '../actions/columns';
-import createStream from '../stream';
+} from '../../actions/timelines';
+import { addColumn, removeColumn, moveColumn } from '../../actions/columns';
+import createStream from '../../stream';
 
 const mapStateToProps = (state, ownprops) => ({
   streamingAPIBaseURL: state.getIn(['meta', 'streaming_api_base_url']),

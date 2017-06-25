@@ -4,7 +4,7 @@ import { expandHomeTimeline } from '../../actions/timelines';
 import PropTypes from 'prop-types';
 import { defineMessages, injectIntl, FormattedMessage } from 'react-intl';
 import ColumnSettingsContainer from './containers/column_settings_container';
-import Timeline from '../../components/timeline';
+import Timeline from '../timeline';
 import Link from 'react-router-dom/Link';
 
 const messages = defineMessages({

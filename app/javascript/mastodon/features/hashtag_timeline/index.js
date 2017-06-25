@@ -5,7 +5,7 @@ import {
   expandHashtagTimeline,
 } from '../../actions/timelines';
 import { FormattedMessage } from 'react-intl';
-import Timeline from '../../components/timeline';
+import Timeline from '../timeline';
 
 export default class HashtagTimeline extends React.PureComponent {
 
