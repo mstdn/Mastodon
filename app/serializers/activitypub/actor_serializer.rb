@@ -27,7 +27,11 @@ class ActivityPub::ActorSerializer < ActiveModel::Serializer
   class EndpointsSerializer < ActiveModel::Serializer
     include RoutingHelper
 
-    attributes :shared_inbox
+    attributes :extensions, :shared_inbox
+
+    def extensions
+      api_v1_extensions_url
+    end
 
     def shared_inbox
       inbox_url
