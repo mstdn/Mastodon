@@ -238,6 +238,8 @@ Rails.application.routes.draw do
           post :unmute
         end
       end
+
+      resources :extensions, only: :list
     end
 
     namespace :web do
