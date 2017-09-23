@@ -239,7 +239,7 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :extensions, only: :list
+      resources :extensions, only: :index
     end
 
     namespace :web do
