@@ -16,6 +16,7 @@ export default class ComposeDropdown extends React.PureComponent {
     title: PropTypes.string.isRequired,
     icon: PropTypes.string,
     highlight: PropTypes.bool,
+    disabled: PropTypes.bool,
     children: PropTypes.arrayOf(PropTypes.node).isRequired,
   };
 
@@ -39,6 +40,7 @@ export default class ComposeDropdown extends React.PureComponent {
   }
 
   onToggleDropdown = () => {
+    if (this.props.disabled) return;
     this.setState({ open: !this.state.open });
   };
 
@@ -48,7 +50,7 @@ export default class ComposeDropdown extends React.PureComponent {
 
   render () {
     const { open } = this.state;
-    let { highlight, title, icon } = this.props;
+    let { highlight, title, icon, disabled } = this.props;
 
     if (!icon) icon = 'ellipsis-h';
 
@@ -56,11 +58,12 @@ export default class ComposeDropdown extends React.PureComponent {
       <div ref={this.setRef} className={`advanced-options-dropdown ${open ?  'open' : ''} ${highlight ? 'active' : ''} `}>
         <div className='advanced-options-dropdown__value'>
           <IconButton
-            className='advanced-options-dropdown__value'
+            className={'inverted'}
             title={title}
             icon={icon} active={open || highlight}
             size={18}
             style={iconStyle}
+            disabled={disabled}
             onClick={this.onToggleDropdown}
           />
         </div>
