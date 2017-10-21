@@ -152,7 +152,7 @@ Finally, we can render our component.
     return (
       <ComposeDropdown
         title={intl.formatMessage(messages.advanced_options_icon_title)}
-        icon='ellipsis-h'
+        icon='home'
         highlight={anyEnabled}
       >
         {optionElems}
