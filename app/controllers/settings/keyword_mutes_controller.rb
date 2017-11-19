@@ -1,10 +1,13 @@
 # frozen_string_literal: true
 
 class Settings::KeywordMutesController < ApplicationController
+  include UserTrackingConcern
+
   layout 'admin'
 
   before_action :authenticate_user!
   before_action :load_keyword_mute, only: [:edit, :update, :destroy]
+  after_action :bust_feed_caches, only: [:create, :update, :destroy]
 
   def index
     @keyword_mutes = paginated_keyword_mutes_for_account
@@ -52,6 +55,12 @@ class Settings::KeywordMutesController < ApplicationController
 
   def load_keyword_mute
     @keyword_mute = keyword_mutes_for_account.find(params[:id])
+  end
+
+  def bust_feed_caches
+    # FIXME: this key is really meant to be an implementation detail
+    Redis.current.del("account:#{current_user.account_id}:regeneration")
+    regenerate_feed!
   end
 
   def keyword_mute_params
