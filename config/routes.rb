@@ -240,7 +240,7 @@ Rails.application.routes.draw do
       resources :media,      only: [:create, :update]
       resources :blocks,     only: [:index]
       resources :mutes,      only: [:index] do
-        collection do 
+        collection do
           get 'details'
         end
       end
@@ -309,7 +309,8 @@ Rails.application.routes.draw do
     end
   end
 
-  get '/web/(*any)', to: 'home#index', as: :web
+  get '/web/(*glob)', to: 'home#index', as: :web
+  get "/$:use_flavour/(*glob)", to: 'home#index', constraints: { flavour: /[\w-]+/ }
 
   get '/about',      to: 'about#show'
   get '/about/more', to: 'about#more'
