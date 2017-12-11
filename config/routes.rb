@@ -310,7 +310,7 @@ Rails.application.routes.draw do
   end
 
   get '/web/(*glob)', to: 'home#index', as: :web
-  get "/$:use_flavour/(*glob)", to: 'home#index', constraints: { flavour: /[\w-]+/ }
+  get "/$:use_flavour/(*glob)", to: 'home#index'
 
   get '/about',      to: 'about#show'
   get '/about/more', to: 'about#more'
