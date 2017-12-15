@@ -14,6 +14,17 @@ const initialState = ImmutableMap({
 
   skinTone: 1,
 
+  list_timeline: ImmutableMap({
+    shows: ImmutableMap({
+      reblog: true,
+      reply: true,
+    }),
+
+    regex: ImmutableMap({
+      body: '',
+    }),
+  }),
+
   home: ImmutableMap({
     shows: ImmutableMap({
       reblog: true,

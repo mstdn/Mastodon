@@ -13,6 +13,7 @@ import { fetchList, deleteList } from 'flavours/glitch/actions/lists';
 import { openModal } from 'flavours/glitch/actions/modal';
 import MissingIndicator from 'flavours/glitch/components/missing_indicator';
 import LoadingIndicator from 'flavours/glitch/components/loading_indicator';
+import ColumnSettingsContainer from './containers/column_settings_container';
 
 const messages = defineMessages({
   deleteMessage: { id: 'confirmations.delete_list.message', defaultMessage: 'Are you sure you want to permanently delete this list?' },
@@ -143,6 +144,7 @@ export default class ListTimeline extends React.PureComponent {
           pinned={pinned}
           multiColumn={multiColumn}
         >
+        <ColumnSettingsContainer />
           <div className='column-header__links'>
             <button className='text-btn column-header__setting-btn' tabIndex='0' onClick={this.handleEditClick}>
               <i className='fa fa-pencil' /> <FormattedMessage id='lists.edit' defaultMessage='Edit list' />
