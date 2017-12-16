@@ -123,5 +123,34 @@ RSpec.describe Api::V1::StatusesController, type: :controller do
         end
       end
     end
+
+    context 'with a local-only status' do
+      let(:status) { Fabricate(:status, account: user.account, visibility: :public, local_only: true) }
+
+      describe 'GET #show' do
+        it 'returns http unautharized' do
+          get :show, params: { id: status.id }
+          expect(response).to have_http_status(:missing)
+        end
+      end
+
+      describe 'GET #context' do
+        before do
+          Fabricate(:status, account: user.account, thread: status)
+        end
+
+        it 'returns http unautharized' do
+          get :context, params: { id: status.id }
+          expect(response).to have_http_status(:missing)
+        end
+      end
+
+      describe 'GET #card' do
+        it 'returns http unautharized' do
+          get :card, params: { id: status.id }
+          expect(response).to have_http_status(:missing)
+        end
+      end
+    end
   end
 end
