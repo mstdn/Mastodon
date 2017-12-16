@@ -59,6 +59,36 @@ RSpec.describe Api::V1::StatusesController, type: :controller do
         expect(Status.find_by(id: status.id)).to be nil
       end
     end
+
+    describe 'the "local_only" property' do
+      context 'for a local-only status' do
+        let(:status) { Fabricate(:status, account: user.account, local_only: true) }
+
+        before do
+          get :show, params: { id: status.id }
+        end
+
+        let(:status_response) { JSON.parse(response.body) }
+
+        it 'is true' do
+          expect(status_response["local_only"]).to be true
+        end
+      end
+
+      context 'for a non-local-only status' do
+        let(:status) { Fabricate(:status, account: user.account, local_only: false) }
+
+        before do
+          get :show, params: { id: status.id }
+        end
+
+        let(:status_response) { JSON.parse(response.body) }
+
+        it 'is false' do
+          expect(status_response["local_only"]).to be false
+        end
+      end
+    end
   end
 
   context 'without an oauth token' do
