@@ -6,6 +6,7 @@ class PostStatusService < BaseService
   # @param [String] text Message
   # @param [Status] in_reply_to Optional status to reply to
   # @param [Hash] options
+  # @option [Boolean] :local_only
   # @option [Boolean] :sensitive
   # @option [String] :visibility
   # @option [String] :spoiler_text
@@ -25,6 +26,7 @@ class PostStatusService < BaseService
     ApplicationRecord.transaction do
       status = account.statuses.create!(text: text,
                                         thread: in_reply_to,
+                                        local_only: options[:local_only],
                                         sensitive: options[:sensitive],
                                         spoiler_text: options[:spoiler_text] || '',
                                         visibility: options[:visibility] || account.user&.setting_default_privacy,
