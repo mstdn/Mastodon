@@ -35,13 +35,71 @@ RSpec.describe Api::V1::StatusesController, type: :controller do
     end
 
     describe 'POST #create' do
-      before do
-        post :create, params: { status: 'Hello world' }
+      context 'with local_only unspecified and no eyeball' do
+        before do
+          post :create, params: { status: 'Hello world' }
+        end
+
+        let(:status_response) { JSON.parse(response.body) }
+
+        it 'returns http success' do
+          expect(response).to have_http_status(:success)
+        end
+
+        it 'creates a non-local-only status' do
+          expect(status_response["local_only"]).to be false
+        end
       end
 
-      it 'returns http success' do
-        expect(response).to have_http_status(:success)
+      context 'with local_only unspecified and an eyeball' do
+        before do
+          post :create, params: { status: "Hello world #{Status.new.local_only_emoji}" }
+        end
+
+        let(:status_response) { JSON.parse(response.body) }
+
+        it 'returns http success' do
+          expect(response).to have_http_status(:success)
+        end
+
+        it 'creates a local-only status' do
+          expect(status_response["local_only"]).to be true
+        end
       end
+
+
+      context 'with local_only set to true' do
+        before do
+          post :create, params: { status: 'Hello world', local_only: true }
+        end
+
+        let(:status_response) { JSON.parse(response.body) }
+
+        it 'returns http success' do
+          expect(response).to have_http_status(:success)
+        end
+
+        it 'creates a local-only status' do
+          expect(status_response["local_only"]).to be true
+        end
+      end
+
+      context 'with local_only set to false' do
+        before do
+          post :create, params: { status: 'Hello world', local_only: false }
+        end
+
+        let(:status_response) { JSON.parse(response.body) }
+
+        it 'returns http success' do
+          expect(response).to have_http_status(:success)
+        end
+
+        it 'creates a non-local-only status' do
+          expect(status_response["local_only"]).to be false
+        end
+      end
+
     end
 
     describe 'DELETE #destroy' do
