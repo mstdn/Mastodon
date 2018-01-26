@@ -5,8 +5,7 @@ class MuteService < BaseService
     return if account.id == target_account.id
 
     ActiveRecord::Base.transaction do
-      mute = account.mute!(target_account, notifications: notifications)
-      mute.create_note!(note: note) if !note.blank?
+      mute = account.mute!(target_account, notifications: notifications, note: note)
       BlockWorker.perform_async(account.id, target_account.id)
       mute
     end

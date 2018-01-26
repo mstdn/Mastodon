@@ -10,7 +10,7 @@ class REST::RelationshipSerializer < ActiveModel::Serializer
   end
 
   def note
-    object.respond_to?(:note) ? object.note.text : nil
+    object.respond_to?(:note) ? object.note&.text : nil
   end
 
   def following

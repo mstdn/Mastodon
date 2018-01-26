@@ -21,7 +21,7 @@ class Api::V1::AccountsController < Api::BaseController
   end
 
   def block
-    BlockService.new.call(current_user.account, @account)
+    BlockService.new.call(current_user.account, @account, note: params[:note])
     render json: @account, serializer: REST::RelationshipSerializer, relationships: relationships
   end
 
