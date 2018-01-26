@@ -2,15 +2,10 @@
 
 class REST::RelationshipSerializer < ActiveModel::Serializer
   attributes :id, :following, :showing_reblogs, :followed_by, :blocking,
-             :muting, :muting_notifications, :requested, :domain_blocking,
-             :note
+             :muting, :muting_notifications, :requested, :domain_blocking
 
   def id
     object.id.to_s
-  end
-
-  def note
-    object.respond_to?(:note) ? object.note&.text : nil
   end
 
   def following
