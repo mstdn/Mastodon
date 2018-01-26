@@ -12,4 +12,6 @@
 
 class Glitch::Note < ApplicationRecord
   belongs_to :target, polymorphic: true
+
+  alias_attribute :text, :note
 end
