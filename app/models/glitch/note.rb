@@ -13,5 +13,7 @@
 class Glitch::Note < ApplicationRecord
   belongs_to :target, polymorphic: true
 
+  validates :note, presence: true
+
   alias_attribute :text, :note
 end
