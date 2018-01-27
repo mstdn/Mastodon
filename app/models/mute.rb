@@ -22,7 +22,7 @@ class Mute < ApplicationRecord
   after_create  :remove_blocking_cache
   after_destroy :remove_blocking_cache
 
-  has_one :note, class_name: 'Glitch::Note', as: :target
+  has_one :note, class_name: 'Glitch::Note', as: :target, dependent: :destroy
 
   private
 
