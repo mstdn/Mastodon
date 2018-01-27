@@ -188,7 +188,7 @@ ActiveRecord::Schema.define(version: 20180118192721) do
     t.text "note", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["target_id", "target_type"], name: "index_glitch_notes_on_target_id_and_target_type"
+    t.index ["target_type", "target_id"], name: "index_glitch_notes_on_target_type_and_target_id"
   end
 
   create_table "imports", force: :cascade do |t|

@@ -4,7 +4,7 @@ class CreateGlitchNotes < ActiveRecord::Migration[5.1]
       t.bigint :target_id, null: false
       t.string :target_type, null: false
       t.text :note, null: false
-      t.index [:target_id, :target_type]
+      t.index [:target_type, :target_id]
       t.timestamps
     end
   end
