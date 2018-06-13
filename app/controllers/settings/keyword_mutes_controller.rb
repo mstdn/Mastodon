@@ -15,6 +15,7 @@ class Settings::KeywordMutesController < Settings::BaseController
     @keyword_mute = keyword_mutes_for_account.create(keyword_mute_params)
 
     if @keyword_mute.persisted?
+      Glitch::ApplyKeywordMutesWorker.perform_async(current_account.id)
       redirect_to settings_keyword_mutes_path, notice: I18n.t('generic.changes_saved_msg')
     else
       render :new
@@ -23,6 +24,7 @@ class Settings::KeywordMutesController < Settings::BaseController
 
   def update
     if @keyword_mute.update(keyword_mute_params)
+      Glitch::ApplyKeywordMutesWorker.perform_async(current_account.id)
       redirect_to settings_keyword_mutes_path, notice: I18n.t('generic.changes_saved_msg')
     else
       render :edit
@@ -32,12 +34,14 @@ class Settings::KeywordMutesController < Settings::BaseController
   def destroy
     @keyword_mute.destroy!
 
+    Glitch::ApplyKeywordMutesWorker.perform_async(current_account.id)
     redirect_to settings_keyword_mutes_path, notice: I18n.t('generic.changes_saved_msg')
   end
 
   def destroy_all
     keyword_mutes_for_account.delete_all
 
+    Glitch::ApplyKeywordMutesWorker.perform_async(current_account.id)
     redirect_to settings_keyword_mutes_path, notice: I18n.t('generic.changes_saved_msg')
   end
 
