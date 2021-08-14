@@ -1,0 +1,41 @@
+// Dependent colors
+$black: #000000;
+$white: #ffffff;
+
+$classic-base-color: #c7c7c7;
+$classic-primary-color: #454545;
+$classic-secondary-color: #2a2a2a;
+$classic-highlight-color: #bcbcbc;
+
+$ui-base-color: $classic-secondary-color !default;
+$ui-base-lighter-color: darken($ui-base-color, 57%);
+$ui-highlight-color: $classic-highlight-color !default;
+$ui-primary-color: $classic-primary-color !default;
+$ui-secondary-color: $classic-base-color !default;
+
+$primary-text-color: #e8e8e8 !default;
+$darker-text-color: $classic-base-color !default;
+$dark-text-color: #a7a7a7;
+$action-button-color: #828282;
+
+$success-green: #80b38b;
+$error-red: #b38080;
+$warning-red: #b38c80;
+
+$base-overlay-background: $black !default;
+
+$inverted-text-color: #222222 !default;
+$lighter-text-color: $classic-base-color !default;
+$light-text-color: #6b6b6b;
+
+$account-background-color: #494949 !default;
+
+@function darken($color, $amount) {
+  @return hsl(hue($color), saturation($color), lightness($color) + $amount);
+}
+
+@function lighten($color, $amount) {
+  @return hsl(hue($color), saturation($color), lightness($color) - $amount);
+}
+
+//$emojis-requiring-inversion: 'chains';
