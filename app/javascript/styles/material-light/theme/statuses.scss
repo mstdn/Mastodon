@@ -1,0 +1,185 @@
+@charset "UTF-8";
+@import 'base_config';
+@import '../custom_config';
+@import '../custom_color', '../custom_layout';
+@import 'mixins';
+
+
+.status {
+    padding: 12px 12px 12px 70px;
+    border-bottom: 1px solid $border-color;
+
+    &__expand { width: 70px }
+
+    &__info {
+        font-size: $name-font-size;
+        padding-right: 4px;
+    }
+
+    &__relative-time { color: $info-text-color }
+
+    &__display-name {
+        color: $secondary-text-color;
+
+        strong { color: $primary-text-color }
+    }
+
+    &__avatar {
+        left: 12px;
+        top: 12px;
+    }
+
+    &__content {
+        font-size: $status-font-size;
+        padding-top: 4px;
+        color: $primary-text-color;
+
+        a {
+            color: $link-text-color;
+
+            &.unhandled-link { color: $link-text-color }
+        }
+
+        .status__content__spoiler-link {
+            background: transparent;
+
+            &:hover { background: $text-button-hover-color }
+
+            &:focus { background: $text-button-focus-color }
+        }
+
+        &__spoiler-link {
+            border: 0;
+            color: $text-button-color;
+        }
+
+        &__read-more-button {
+            font-size: 14px;
+            color: $text-button-color;
+            border-radius: $button-radius;
+            padding: 4px 6px;
+
+            &:hover {
+                background: $text-button-hover-color;
+                text-decoration: none;
+            }
+
+            &:focus { background: $text-button-focus-color }
+        }
+    }
+
+    &__action-bar {
+        &__counter__label {
+            font-size: 14px;
+            color: $info-text-color;
+        }
+    }
+
+    &__prepend {
+        color: $secondary-text-color;
+        margin-left: 64px;
+
+        .status__display-name strong { color: $secondary-text-color }
+    }
+
+    &.status-direct:not(.read) {
+        background: transparent;
+        border-bottom-color: $border-color;
+    }
+}
+
+.status-card {
+    color: $icon-color;
+    border-color: $border-color;
+    outline: none;
+
+    &__image {
+        background: transparent;
+
+        &>.fa {
+            font-size: 26px;
+        }
+    }
+
+    &__title {
+        color: $primary-text-color;
+        margin-bottom: 6px;
+    }
+
+    &__description { color: $secondary-text-color }
+
+    &__actions {
+        &>div {
+            background: $media-icon-background-color;
+            border-radius: $button-radius;
+        }
+
+        button,
+        a {
+            color: $media-icon-color;
+            font-size: 20px;
+        }
+
+        a { bottom: auto }
+    }
+
+    &.compact {
+        border-color: $border-color;
+        outline: none;
+        background: transparent;
+        
+        .status-card {
+            &__content { padding: 12px }
+            &__image { flex: 0 0 64px }
+        }
+
+        &:hover { background-color: transparent !important }
+    }
+
+    &:hover { background-color: $card-background-color }
+}
+
+// Detailed status in mobile
+.status.light {
+    .status {
+        &__display-name { color: $primary-text-color }
+        &__relative-time { color: $info-text-color }
+        &__content { color: $primary-text-color }
+    }
+
+    .display-name { color: $secondary-text-color }
+    .display-name strong { color: $primary-text-color }
+}
+
+.detailed-status {
+    background: $card-background-color;
+    padding: 16px;
+
+    &__display-name {
+        color: $secondary-text-color;
+
+        strong { color: $primary-text-color }
+    }
+
+    &__meta {
+        margin-top: 16px;
+        color: $info-text-color;
+    }
+
+    &__action-bar {
+        background: $card-background-color;
+        border-top: none;
+        border-bottom: 1px solid $border-color;
+        padding: 12px 0;
+    }
+
+    &__button {
+        .icon-button { font-size: 20px !important }
+    }
+}
+
+// search user trends
+.display-name {
+    &__html { color: $primary-text-color !important }
+    &__account { color: $secondary-text-color }
+}

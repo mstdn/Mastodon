@@ -1,0 +1,135 @@
+@charset "UTF-8";
+
+
+// Base color
+$primary-color: #4285f4;
+$secondary-color: #db4437;
+$error-color: #B00020;
+$verified-color: #4caf50;
+
+// Text color
+$primary-text-color: #ffffff;
+$secondary-text-color: #9aa0a6;
+$ui-text-color: #e8eaed;
+$inverted-text-color: #000000;
+$section-text-color: $primary-color;
+$info-text-color: #9aa0a6;
+$tips-text-color: #c0c0c0;
+$disabled-text-color: rgba(0,0,0,.54);
+$link-text-color: #4285f4;
+$menu-text-color: $ui-text-color;
+$top-bar-text-color: $ui-text-color;
+$search-bar-text-color: $inverted-text-color;
+$contained-button-text-color: #ffffff;
+
+// Background-color
+$background-color: #000000;
+$menu-background-color: #121212;
+$menu-background-hover-color: lighten($menu-background-color, 6%);
+$menu-background-active-color: lighten($menu-background-color, 10%);
+$menu-background-active-hover-color: lighten($menu-background-color, 16%);
+$card-background-color: #121212;
+$card-background-hover-color: lighten($card-background-color, 6%);
+$card-background-inactive-color: lighten($card-background-color, 10%);
+$list-background-color: #000000;
+$list-background-hover-color: lighten($list-background-color, 6%);
+$list-background-active-color: lighten($list-background-color, 10%);
+$list-background-inactive-color: lighten($list-background-color, 10%);
+$text-field-background-color: $card-background-color;
+$verified-background-color: darken($verified-color, 20%);
+
+// Chip color
+$contained-chip-color: #1e1e1e;
+$contained-chip-hover-color: lighten($contained-chip-color, 6%);
+$contained-chip-selected-color: lighten($contained-chip-color, 12%);
+$outlined-chip-color: #121212;
+$outlined-chip-hover-color: lighten($outlined-chip-color, 6%);
+$outlined-chip-selected-color: lighten($outlined-chip-color, 12%);
+
+// Relationship tag color
+$relationship-tag-color: transparentize(#2e2e2e, 0.2);
+
+// Badge color
+$badge-color: $primary-color;
+//$badge-color: $secondary-color;
+
+// Icon color
+$icon-color: #e2e2e3;
+$icon-hover-color: lighten($icon-color, 30%);
+$icon-background-hover-color: transparentize(#ffffff, 0.8);
+$icon-background-active-color: transparentize(#ffffff, 0.7);
+$disabled-icon-color: lighten($icon-color, 16%);
+$top-bar-icon-color: $icon-color;
+$top-bar-icon-hover-color: $icon-hover-color;
+$top-bar-icon-active-color: $primary-color;
+$top-bar-unread-icon-color: $secondary-color;
+$media-icon-color: transparentize(#ffffff, 0.4);
+$media-icon-hover-color: transparentize(#ffffff, 0.2);
+$media-icon-background-color: transparentize(#000000, 0.5);
+$media-icon-background-hover-color: transparentize(#000000, 0.8);
+$control-border-color: $icon-color;
+
+// Button color
+$icon-button-color: $icon-color;
+$icon-button-hover-color: $icon-hover-color;
+$icon-button-active-color: $primary-color;
+$icon-button-active-hover-color: lighten($icon-button-active-color, 10%);
+$contained-button-color: $primary-color;
+$contained-button-hover-color: lighten($contained-button-color, 10%);
+$outlined-button-color: $primary-color;
+$outlined-button-hover-color: lighten($primary-color, 36%);
+$outlined-button-active-color: lighten($primary-color, 30%);
+$text-button-color: $primary-color;
+$text-button-hover-color: transparentize($text-button-color, 0.8);
+$text-button-focus-color: transparentize($text-button-color, 0.7);
+$floating-action-button-color: $primary-color;
+$floating-action-button-hover-color: lighten($floating-action-button-color, 6%);
+$floating-action-button-active-color: lighten($floating-action-button-color, 10%);
+$floating-action-button-icon-color: #ffffff;
+
+// Toggle color
+$toggle-thumb-color: #ffffff;
+$toggle-track-color: darken($toggle-thumb-color, 18%);
+$toggle-thumb-active-color: #1a73e8;
+$toggle-track-active-color: lighten($toggle-thumb-active-color, 18%);
+
+// Border color
+$border-color: #1e1e1e;
+$border-active-color: lighten($border-color, 30%);
+
+// Scroll bar color
+$scroll-bar-thumb-color: lighten($background-color, 20%);
+$scroll-bar-thumb-hover-color: lighten($scroll-bar-thumb-color, 10%);
+$scroll-bar-thumb-active-color: lighten($scroll-bar-thumb-color, 18%);
+
+// App bar color
+$top-bar-color: #1e1e1e;
+$search-bar-color: lighten($top-bar-color, 6%);
+$search-bar-focus-color: #ffffff;
+
+// Tab color
+$tab-indicator-color: $top-bar-icon-color;
+$tab-indicator-active-color: $top-bar-icon-color;
+$tab-background-color: $top-bar-color;
+$tab-indicator-background-hover-color: transparentize($tab-indicator-active-color, 0.9);
+$tab-indicator-background-focus-color: transparentize($tab-indicator-active-color, 0.8);
+$text-tab-indicator-color: $secondary-text-color;
+$text-tab-indicator-active-color: $ui-text-color;
+$text-tab-background-color: #121212;
+$text-tab-indicator-background-hover-color: transparentize($text-tab-indicator-active-color, 0.9);
+$text-tab-indicator-background-focus-color: transparentize($text-tab-indicator-active-color, 0.8);
+
+// Media indicator color
+$media-page-indicator-color: #9e9e9e;
+$media-page-indicator-active-color: #e6e6e6;
+
+// Poll chart color
+$poll-bar-leading-color: $primary-color;
+$poll-bar-color: lighten($poll-bar-leading-color, 30%);
+
+// Contents color in read status
+$read-primary-text-color: transparentize($primary-text-color, 0.3);
+$read-secondary-text-color: transparentize($secondary-text-color, 0.3);
+$read-ui-text-color: transparentize($ui-text-color, 0.3);
+$read-poll-bar-leading-color: transparentize($poll-bar-leading-color, 0.3);
+$read-poll-bar-color: transparentize($poll-bar-color, 0.3);

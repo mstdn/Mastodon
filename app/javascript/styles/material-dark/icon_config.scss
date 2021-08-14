@@ -1,0 +1,26 @@
+// Favorite icon settings
+$favorite-icon: "star"; $favorite-icon-border: "star_border";  // Star
+//$favorite-icon: "favorite"; $favorite-icon-border: "favorite_border";  // Heart
+//$favorite-icon: "plus_one"; $favorite-icon-border: "plus_one";  // +1
+
+$favorite-icon-color: #ffd600;  // Star
+//$favorite-icon-color: #ff4081;  // Heart
+//$favorite-icon-color: #db4437;  // +1
+//$favorite-icon-color: #ffffff;  // inverted +1
+
+
+// Reply icon settings
+$reply-icon: "reply";
+//$reply-icon: "comment";  // blooming
+
+
+// Material Design Icon settings
+// If you want to use self-hosting font, please place MaterialIcons-Regular.woff2 file in '../../fonts' folder and configure below.
+@font-face {
+    font-family: "Material Icons";
+    src:
+        local("Material Icons"),
+        //url("https://raw.githubusercontent.com/google/material-design-icons/master/iconfont/MaterialIcons-Regular.woff2");  // GitHub
+        //url("https://fonts.gstatic.com/s/materialicons/v50/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2");  // Google Fonts
+        url("../fonts/MaterialIcons-Regular.woff2");  // Self-hosting
+}

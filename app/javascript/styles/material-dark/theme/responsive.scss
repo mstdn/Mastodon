@@ -1,0 +1,94 @@
+@charset "UTF-8";
+@import 'base_config';
+@import '../custom_config';
+@import '../custom_color', '../custom_layout';
+@import 'mixins';
+
+
+.tabs-bar {
+    background: $top-bar-color;
+
+    &__link {
+        padding: 16px 16px 12px 16px;
+        color: $top-bar-icon-color;
+        border-bottom: 4px solid transparent;
+
+        &.active {
+            border-bottom: 4px solid $tab-indicator-active-color;
+            color: $tab-indicator-active-color;
+        }
+
+        .fa { font-size: 20px }
+
+        span {
+            margin-left: 8px;
+            vertical-align: text-bottom;
+        }
+    }
+
+    &__wrapper {
+        @include shadow-4dp;
+        background: transparent;
+    }
+}
+
+#tabs-bar__portal { overflow-y: hidden }
+
+.floating-action-button {
+    @include shadow-6dp;
+    background: $floating-action-button-color;
+    color: $floating-action-button-icon-color;
+    font-size: 24px;
+
+    &:hover { background: $floating-action-button-hover-color }
+
+    &:active,
+    &:focus { background: $floating-action-button-active-color }
+}
+
+.columns-area--mobile {
+    .column { margin: 0 !important }
+    .search__input { padding: 16px 46px }
+
+    .search__icon {
+        .fa {
+            top: 16px;
+            left: 16px;
+        }
+
+        .fa-times-circle.active { left: unset }
+    }
+}
+
+// middle size screen
+@media screen and (min-width: 415px) {
+    .tabs-bar {
+        margin-bottom: 0;
+
+        &__wrapper {
+            padding-top: 0;
+
+            .tabs-bar { margin-bottom: 0 }
+        }
+    }
+
+    .columns-area__panels__main {
+        @include shadow-1dp;
+        padding: 0;
+    }
+}
+
+@media screen and (min-width: 631px) {
+    .tabs-bar__link {
+        &:hover {
+            background: $tab-indicator-background-hover-color;
+            border-bottom-color: $tab-background-color;
+        }
+
+        &:active,
+        &:focus {
+            background: $tab-indicator-background-focus-color;
+            border-bottom-color: $tab-background-color;
+        }
+    }
+}

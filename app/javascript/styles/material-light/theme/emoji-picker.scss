@@ -1,0 +1,92 @@
+@charset "UTF-8";
+@import 'base_config';
+@import '../custom_config';
+@import '../custom_color', '../custom_layout';
+@import 'mixins';
+
+.emoji-picker-dropdown {
+    &__menu {
+        @include shadow-8dp;
+        background: $menu-background-color;
+        border-radius: $menu-radius;
+    }
+
+    &__modifiers__menu {
+        @include shadow-8dp;
+        background: $menu-background-color;
+        border-radius: $menu-radius;
+
+        button {
+            padding: 8px;
+        }
+    }
+}
+
+.emoji-mart {
+    width: 388px !important;
+    font-size: 14px;
+    color: $menu-text-color;
+
+    &-bar {
+        border: 0 solid $border-color;
+
+        &:first-child {
+            background: $menu-background-color;
+        }
+    }
+
+    &-anchors {
+        color: $icon-button-color;
+        padding: 0;
+    }
+
+    &-anchor {
+        padding: 10px 4px;
+
+        &-selected {
+            color: $icon-button-active-color;
+        }
+
+        &-bar {
+            background-color: $tab-indicator-active-color;
+        }
+
+        &:hover {
+            color: $icon-button-hover-color;
+        }
+    }
+
+    &-search {
+        background: $menu-background-color;
+
+        input {
+            outline: none;
+            padding: 8px;
+            background: $search-bar-color;
+            color: $ui-text-color;
+            border: 0;
+            border-radius: $search-bar-radius;
+
+            &:focus {
+                @include shadow-2dp;
+                background: $search-bar-focus-color;
+            }
+        }
+    }
+
+    &-scroll {
+        padding: 0 8px 8px;
+        background: $menu-background-color;
+    }
+
+    &-category-label span {
+        padding: 4px 6px;
+        background: $menu-background-color;
+    }
+
+    &-emoji:hover::before {
+        background-color: $icon-background-hover-color;
+    }
+
+    &-no-results { color: $secondary-text-color }
+}

@@ -1,0 +1,97 @@
+@charset "UTF-8";
+@import 'base_config';
+@import '../custom_config';
+@import '../custom_color', '../custom_layout';
+@import 'mixins';
+
+.icon-button {
+    color: $icon-button-color;
+    border-radius: 50%;
+
+    &.active {
+        color: $icon-button-active-color;
+
+        &:hover { color: $icon-button-active-hover-color }
+    }
+
+    &.disabled { color: $disabled-icon-color }
+
+    &.inverted {
+        color: $icon-button-color;
+
+        &:hover {
+            color: $icon-button-hover-color;
+            background-color: $icon-background-hover-color;
+        }
+    }
+
+    &.overlayed {
+        border-radius: 50%;
+        background: $media-icon-background-color;
+        color: $media-icon-color;
+    
+        &:hover {
+            background: $media-icon-background-color;
+            color: $media-icon-hover-color;
+        }
+    }
+
+    &:hover {
+        color: $icon-button-hover-color;
+        background-color: $icon-background-hover-color;
+    }
+
+    &:active,
+    &:focus { background-color: transparent }
+}
+
+.text-icon-button {
+    color: $icon-button-color;
+    border-radius: 50%;
+    font-size: 12px;
+
+    &:hover {
+        background-color: $icon-background-hover-color;
+        color: $icon-button-hover-color;
+    }
+}
+
+.button,
+.button:active,
+.button:focus {
+    background-color: $contained-button-color;
+    border-radius: $button-radius;
+}
+
+.button:hover {
+    @include shadow-2dp;
+    background-color: $contained-button-hover-color;
+}
+
+.button.logo-button {
+    background: $contained-button-color;
+    margin: 2px;
+
+    &:hover { background: $contained-button-hover-color }
+
+    .button--destructive:hover { background: $contained-button-hover-color }
+}
+
+.button.button--block { margin: 8px 0 }
+
+.button.confirmation-modal__cancel-button {
+    box-shadow: none;
+    background-color: transparent;
+    margin: 0 8px;
+    color: $text-button-color;
+
+    &:hover { background: $text-button-hover-color }
+
+    &:focus { background: $text-button-focus-color }
+}
+
+.spoiler-button__overlay__label {
+    background: $media-icon-background-color;
+    border-radius: $button-radius;
+    color: $media-icon-color;
+}

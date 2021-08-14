@@ -1,0 +1,153 @@
+@charset "UTF-8";
+@import 'base_config';
+@import '../custom_config';
+@import '../custom_color', '../custom_layout';
+@import 'mixins';
+
+.account {
+    border-bottom: 1px solid $border-color;
+
+    .account__display-name { color: $primary-text-color }
+    .account__display-name strong { color: $secondary-text-color }
+
+    &__avatar {
+        border-radius: $avater-radius;
+        width: 40px;
+        height: 40px;
+
+        &-overlay {
+            &-base {
+                border-radius: 50%;
+                width: 44px;
+                height: 44px;
+                background-size: 44px;
+            }
+
+            &-overlay { border-radius: $avater-radius }
+        }
+    }
+
+    &__header {
+        &__bar {
+            background: $card-background-color;
+            padding: 8px;
+            border-bottom: 1px solid $border-color;
+
+            .avatar .account__avatar { border: none }
+        }
+
+        &__tabs {
+            padding: 8px;
+
+            &__name {
+                padding: 8px;
+
+                h1 {
+                    color: $primary-text-color;
+
+                    small { color: $secondary-text-color }
+                }
+            }
+
+            &__buttons {
+                .icon-button {
+                    border: none;
+                    border-radius: 50%;
+                    padding: 0;
+                }
+            }
+        }
+
+        &__extra {
+            margin-top: 0;
+
+            &__links {
+                color: $secondary-text-color;
+                padding: 10px 0;
+
+                a {
+                    color: $secondary-text-color;
+                    padding: 4px 12px;
+
+                    strong { color: $ui-text-color }
+                }
+            }
+        }
+
+        &__bio {
+            margin: 0;
+
+            .account__header {
+                &__content {
+                    color: $primary-text-color;
+                    padding: 8px;
+                }
+
+                &__fields {
+                    border: 1px solid $border-color;
+                    border-radius: 4px;
+
+                    .verified {
+                        border: none;
+                        background: $verified-background-color;
+
+                        a,
+                        &__mark { color: $primary-text-color }
+                    }
+
+                    dl {
+                        border-bottom: 1px solid $border-color;
+
+                        &:first-child .verified { border-radius: 0 }
+
+                        &:last-child { border-bottom: 0 }
+                    }
+
+                    dt {
+                        color: $primary-text-color;
+                        background: $list-background-inactive-color;
+                    }
+
+                    dd { color: $primary-text-color }
+                }
+            }
+        }
+
+        &__content { color: $secondary-text-color }
+    }
+
+    &__section-headline {
+        background: $text-tab-background-color;
+        border-bottom: 1px solid $border-color;
+
+        a {
+            padding: 16px 0;
+            color: $text-tab-indicator-color;
+
+            &.active {
+                color: $text-tab-indicator-active-color;
+                border-bottom: 4px solid $text-tab-indicator-active-color;
+
+                &::before,
+                &:after { border: none }
+
+                &:focus { background: $text-tab-indicator-background-focus-color }
+            }
+
+            &:hover { background: $text-tab-indicator-background-hover-color }
+        }
+    }
+}
+
+.account-role {
+    padding: 4px 8px;
+    border-radius: 17px;
+    color: $ui-text-color;
+    background-color: $contained-chip-color;
+}
+
+.accounts-table__count {
+    color: $ui-text-color;
+
+    small { color: $secondary-text-color }
+}

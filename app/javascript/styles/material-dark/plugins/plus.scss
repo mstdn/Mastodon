@@ -1,0 +1,33 @@
+@charset "UTF-8";
+@import '../theme/base_config';
+@import '../custom_config';
+@import '../custom_color', '../custom_layout';
+
+
+.status__action-bar-button {
+    background: #eeeeee;
+    width: 28px !important;
+    height: 28px !important;
+
+    .fa { vertical-align: bottom }
+}
+
+// favorite icon
+.star-icon.active,
+.star-icon.icon-button.active.active,
+.notification__favourite-icon-wrapper .star-icon,
+.status__action-bar-button.star-icon.icon-button.active { background: #db4437 }
+
+.notification__favourite-icon-wrapper {
+    left: -34px;
+
+    .star-icon {
+        border-radius: 50%;
+        width: 28px;
+        height: 28px;
+        vertical-align: baseline;
+        font-size: 18px;
+
+        &.fa-fw::before { vertical-align: middle }
+    }
+}

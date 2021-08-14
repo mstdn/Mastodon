@@ -1,0 +1,65 @@
+@charset "UTF-8";
+@import '../theme/base_config';
+@import '../custom_config';
+@import '../custom_color', '../custom_layout';
+
+
+.drawer {
+    &__tab { margin: 8px auto 8px }
+}
+
+.column { margin: 10px 5px }
+
+.column-header {
+    &__buttons { height: 48px }
+
+    &__button {
+        margin: 8px;
+        padding: 10px 8px;
+
+        .fa { vertical-align: text-top }
+    }
+}
+
+.column-subheading { padding: 8px 16px }
+
+.column-link { padding: 12px 16px }
+
+.notification__filter-bar button { padding: 12px 0 }
+
+.getting-started__footer {
+    padding: 12px 16px;
+
+    p { margin-bottom: 12px }
+}
+
+.compose-form {
+    .compose-form__publish { padding-top: 8px }
+}
+
+.status {
+    padding: 8px 8px 8px 66px;
+
+    &__expand { width: 66px }
+
+    &__info { padding-right: 0 }
+
+    &__avatar {
+        left: 8px;
+        top: 10px;
+    }
+
+    &__content { padding-top: 2px }
+}
+
+.detailed-status {
+    padding: 14px;
+
+    &__meta { margin-top: 14px }
+
+    &__action-bar { padding: 10px 0 }
+}
+
+.reply-indicator { padding: 8px }
+
+.button.button--block { margin: 6px 0 }

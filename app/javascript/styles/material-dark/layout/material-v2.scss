@@ -1,0 +1,60 @@
+@charset "UTF-8";
+@import '../theme/mixins';
+
+
+// Navigation bar radius
+$nav-bar-radius: 8px;
+
+
+// Search bar radius
+$search-bar-radius: 8px;
+
+
+// Bar radius settings
+$bar-radius: 0;
+//$bar-radius: 8px;
+
+
+// Button radius settings
+$button-radius: 8px;
+
+
+// Card radius settings
+$card-radius: 8px;
+
+
+// Dialog radius settings
+$dialog-radius: 8px;
+
+
+// Menu radius settings
+$menu-radius: 8px;
+
+
+// Navigation drawer item settings
+$nav-drawer-item-radius: 8px;  // corner rounded
+//$nav-drawer-item-radius: 32px;  // full rounded
+//$nav-drawer-item-radius: 32px 0 0 32px;  // left rounded
+
+
+// Avater cropping settings
+$avater-radius: 50%;  // Rounded cropping
+//$avater-radius: 8px  // Material v2 square
+
+
+// Chip settings
+// If you want to use contained-chip, please comment out below.
+.reactions-bar__item {
+    background: $outlined-chip-color !important;
+    border: 1px solid $border-color !important;
+
+    &.active { background-color: $outlined-chip-selected-color !important }
+
+    &:hover { background: $outlined-chip-hover-color !important }
+}
+
+
+// Button shadow
+// If you want to use material v2 styled non-shadow button, please comment out this section.
+.button,
+.compose-form .compose-form__publish-button-wrapper { @include shadow-2dp }

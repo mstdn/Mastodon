@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+
+$shadow-color-1: rgba(0,0,0,.2);
+$shadow-color-2: rgba(0,0,0,.14);
+$shadow-color-3: rgba(0,0,0,.12);
+
+@mixin shadow-1dp { box-shadow: 0 2px 1px -1px $shadow-color-1, 0 1px 1px 0 $shadow-color-2, 0 1px 3px 0 $shadow-color-3 }
+@mixin shadow-2dp { box-shadow: 0 3px 1px -2px $shadow-color-1, 0 2px 2px 0 $shadow-color-2, 0 1px 5px 0 $shadow-color-3 }
+@mixin shadow-3dp { box-shadow: 0 3px 3px -2px $shadow-color-1, 0 3px 4px 0 $shadow-color-2, 0 1px 8px 0 $shadow-color-3 }
+@mixin shadow-4dp { box-shadow: 0 2px 4px -1px $shadow-color-1, 0 4px 5px 0 $shadow-color-2, 0 1px 10px 0 $shadow-color-3 }
+@mixin shadow-5dp { box-shadow: 0 3px 5px -1px $shadow-color-1, 0 5px 8px 0 $shadow-color-2, 0 1px 14px 0 $shadow-color-3 }
+@mixin shadow-6dp { box-shadow: 0 3px 5px -1px $shadow-color-1, 0 6px 10px 0 $shadow-color-2, 0 1px 18px 0 $shadow-color-3 }
+@mixin shadow-7dp { box-shadow: 0 4px 5px -2px $shadow-color-1, 0 7px 10px 1px $shadow-color-2, 0 2px 16px 1px $shadow-color-3 }
+@mixin shadow-8dp { box-shadow: 0 5px 5px -3px $shadow-color-1, 0 8px 10px 1px $shadow-color-2, 0 3px 14px 2px $shadow-color-3 }
+@mixin shadow-9dp { box-shadow: 0 5px 6px -3px $shadow-color-1, 0 9px 12px 1px $shadow-color-2, 0 3px 16px 2px $shadow-color-3 }
+@mixin shadow-10dp { box-shadow: 0 6px 6px -3px $shadow-color-1, 0 10px 14px 1px $shadow-color-2, 0 4px 18px 3px $shadow-color-3 }
+@mixin shadow-11dp { box-shadow: 0 6px 7px -4px $shadow-color-1, 0 11px 15px 1px $shadow-color-2, 0 4px 20px 3px $shadow-color-3 }
+@mixin shadow-12dp { box-shadow: 0 7px 8px -4px $shadow-color-1, 0 12px 17px 2px $shadow-color-2, 0 5px 22px 4px $shadow-color-3 }
+@mixin shadow-13dp { box-shadow: 0 7px 8px -4px $shadow-color-1, 0 13px 19px 2px $shadow-color-2, 0 5px 24px 4px $shadow-color-3 }
+@mixin shadow-14dp { box-shadow: 0 7px 9px -4px $shadow-color-1, 0 14px 21px 2px $shadow-color-2, 0 5px 26px 4px $shadow-color-3 }
+@mixin shadow-15dp { box-shadow: 0 8px 9px -5px $shadow-color-1, 0 15px 22px 2px $shadow-color-2, 0 6px 28px 5px $shadow-color-3 }
+@mixin shadow-16dp { box-shadow: 0 8px 10px -5px $shadow-color-1, 0 16px 24px 2px $shadow-color-2, 0 6px 30px 5px $shadow-color-3 }
+
+@mixin non-overflow-shadow-4dp { box-shadow: 0 2px 4px -1px $shadow-color-1, 0 4px 5px -1px $shadow-color-2}

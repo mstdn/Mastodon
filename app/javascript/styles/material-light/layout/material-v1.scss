@@ -1,0 +1,45 @@
+@charset "UTF-8";
+@import '../theme/mixins';
+
+
+// Navigation bar radius
+$nav-bar-radius: 2px;
+
+
+// Search bar radius
+$search-bar-radius: 2px;
+
+
+// Bar radius settings
+$bar-radius: 0;
+
+
+// Button radius settings
+$button-radius: 2px;
+
+
+// Card radius settings
+$card-radius: 2px;
+
+
+// Dialog radius settings
+$dialog-radius: 2px;
+
+
+// Menu radius settings
+$menu-radius: 2px;
+
+
+// Navigation drawer item settings
+$nav-drawer-item-radius: 0;
+
+
+// Avater cropping settings
+$avater-radius: 50%;  // Rounded cropping
+//$avater-radius: 2px  // Material v1 square
+
+
+// Button shadow
+// If you want to use material v2 styled non-shadow button, please comment out this section.
+.button,
+.compose-form .compose-form__publish-button-wrapper { @include shadow-2dp }
