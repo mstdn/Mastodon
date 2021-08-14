@@ -34,7 +34,7 @@ const initialState = ImmutableMap({
     auto        : ImmutableMap({
       all              : false,
       notifications    : false,
-      lengthy          : false,
+      lengthy          : true,
       reblogs          : false,
       replies          : false,
       media            : false,
