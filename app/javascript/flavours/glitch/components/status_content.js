@@ -69,8 +69,8 @@ export default class StatusContent extends React.PureComponent {
     expanded: PropTypes.bool,
     collapsed: PropTypes.bool,
     onExpandedToggle: PropTypes.func,
-    media: PropTypes.element,
-    mediaIcon: PropTypes.string,
+    media: PropTypes.node,
+    mediaIcons: PropTypes.arrayOf(PropTypes.string),
     parseClick: PropTypes.func,
     disabled: PropTypes.bool,
     onUpdate: PropTypes.func,
@@ -256,7 +256,7 @@ export default class StatusContent extends React.PureComponent {
     const {
       status,
       media,
-      mediaIcon,
+      mediaIcons,
       parseClick,
       disabled,
       tagLinks,
@@ -286,28 +286,37 @@ export default class StatusContent extends React.PureComponent {
         </Permalink>
       )).reduce((aggregate, item) => [...aggregate, item, ' '], []);
 
-      const toggleText = hidden ? [
-        <FormattedMessage
-          id='status.show_more'
-          defaultMessage='Show more'
-          key='0'
-        />,
-        mediaIcon ? (
-          <Icon
-            fixedWidth
-            className='status__content__spoiler-icon'
-            id={mediaIcon}
-            aria-hidden='true'
-            key='1'
+      let toggleText = null;
+      if (hidden) {
+        toggleText = [
+          <FormattedMessage
+            id='status.show_more'
+            defaultMessage='Show more'
+            key='0'
+          />,
+        ];
+        if (mediaIcons) {
+          mediaIcons.forEach((mediaIcon, idx) => {
+            toggleText.push(
+              <Icon
+                fixedWidth
+                className='status__content__spoiler-icon'
+                id={mediaIcon}
+                aria-hidden='true'
+                key={`icon-${idx}`}
+              />,
+            );
+          });
+        }
+      } else {
+        toggleText = (
+          <FormattedMessage
+            id='status.show_less'
+            defaultMessage='Show less'
+            key='0'
           />
-        ) : null,
-      ] : [
-        <FormattedMessage
-          id='status.show_less'
-          defaultMessage='Show less'
-          key='0'
-        />,
-      ];
+        );
+      }
 
       if (hidden) {
         mentionsPlaceholder = <div>{mentionLinks}</div>;
