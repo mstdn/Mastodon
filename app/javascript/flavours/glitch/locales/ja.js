@@ -1,7 +1,7 @@
 import inherited from 'mastodon/locales/ja.json';
 
 const messages = {
-  'getting_started.open_source_notice': 'Glitchsocは{Mastodon}によるフリーなオープンソースソフトウェアです。誰でもGitHub（{github}）から開発に參加したり、問題を報告したりできます。',
+  'getting_started.open_source_notice': 'Glitchsocは{Mastodon}によるフリーなオープンソースソフトウェアです。誰でもGitlab（{github}）から開発に參加したり、問題を報告したりできます。',
   'layout.auto': '自動',
   'layout.current_is': 'あなたの現在のレイアウト:',
   'layout.desktop': 'デスクトップ',

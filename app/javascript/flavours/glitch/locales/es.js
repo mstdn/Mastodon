@@ -13,7 +13,7 @@ const messages = {
   'compose.attach': 'Adjuntar...',
   'favourite_modal.combo': 'Puedes presionar {combo} para omitir esto la próxima vez',
   'getting_started.onboarding': 'Paseo inicial',
-  'getting_started.open_source_notice': 'Glitchsoc es software libre y gratuito bifurcado de {Mastodon}. Puedes contribuir o reportar errores en GitHub en {github}.',
+  'getting_started.open_source_notice': 'Glitchsoc es software libre y gratuito bifurcado de {Mastodon}. Puedes contribuir o reportar errores en Gitlab en {github}.',
   'home.column_settings.show_direct': 'Mostrar mensajes directos',
   'layout.auto': 'Automático',
   'layout.current_is': 'Tu diseño actual es:',

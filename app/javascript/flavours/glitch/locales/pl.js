@@ -1,7 +1,7 @@
 import inherited from 'mastodon/locales/pl.json';
 
 const messages = {
-  'getting_started.open_source_notice': 'Glitchsoc jest wolnym i otwartoźródłowym forkiem oprogramowania {Mastodon}. Możesz współtworzyć projekt lub zgłaszać błędy na GitHubie pod adresem {github}.',
+  'getting_started.open_source_notice': 'Glitchsoc jest wolnym i otwartoźródłowym forkiem oprogramowania {Mastodon}. Możesz współtworzyć projekt lub zgłaszać błędy na Gitlabie pod adresem {github}.',
   'layout.auto': 'Automatyczny',
   'layout.current_is': 'Twój obecny układ to:',
   'layout.desktop': 'Desktopowy',
