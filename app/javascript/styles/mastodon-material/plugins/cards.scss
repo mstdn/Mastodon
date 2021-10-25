@@ -1,0 +1,45 @@
+.column {
+    box-shadow: none !important;
+    margin: 2px 0 !important;
+    padding: 8px !important;
+
+    > .scrollable { background: $bg-color }
+}
+
+@media screen and (min-width: 415px) {
+    .notification.notification,
+    .status {
+        border-radius: 0;
+
+        &__wrapper.status__wrapper {
+            margin: 8px 0;
+            border-radius: 0;
+        }
+    }
+
+    .columns-area__panels__main { box-shadow: none }
+}
+
+.status {
+    border-bottom: 0;
+    border-radius: $card-radius;
+    background: $card-bg-color;
+
+    &__prepend { padding: 8px 8px 2px 0 }
+}
+
+.account { border-bottom: 0 !important }
+
+.status__wrapper.status__wrapper,
+.notification.notification {
+    @include shadow-1dp;
+    margin: 8px 2px;
+    border-radius: $card-radius;
+    background: $card-bg-color;
+}
+
+.notification {
+    .status__wrapper.status__wrapper { box-shadow: none !important }
+
+    &__filter-bar { @include non-overflow-shadow-4dp }
+}

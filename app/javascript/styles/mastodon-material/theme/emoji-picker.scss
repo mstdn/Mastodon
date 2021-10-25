@@ -1,0 +1,95 @@
+.emoji-picker-dropdown {
+    &__menu {
+        @include shadow-8dp;
+        background: $menu-bg-color;
+        border-radius: $menu-radius;
+        margin-top: 0;
+    }
+
+    &__modifiers__menu {
+        @include shadow-8dp;
+        background: $menu-bg-color;
+        border-radius: $menu-radius;
+
+        button {
+            padding: 8px;
+        }
+    }
+}
+
+.emoji-mart {
+    font-size: 14px;
+    color: $menu-text-color;
+
+    &-bar {
+        border: 0 solid $border-color;
+
+        &:first-child {
+            background: $tab-bg-color;
+            border-radius: $card-radius $card-radius 0 0;
+        }
+    }
+
+    &-anchor {
+        color: $tab-item-color;
+        padding: 10px 4px;
+        border-radius: 0;
+
+        &-bar { background-color: $tab-item-active-color }
+
+        &-selected {
+            color: $tab-item-active-color;
+
+            &:hover { color: $tab-item-active-color }
+        }
+
+        &:hover { color: $tab-item-active-color }
+    }
+
+    &-search {
+        background: $menu-bg-color;
+
+        &-icon {
+            right: auto;
+            left: 16px;
+            padding: 2px 6px;
+
+            svg { fill: $icon-color }
+
+            &:disabled { opacity: 1 }
+        }
+
+        input {
+            outline: none;
+            padding: 8px 8px 8px 33px;
+            background: $search-bar-color;
+            color: $ui-text-color;
+            border: 0;
+            border-radius: $search-bar-radius;
+
+            &:focus {
+                @include shadow-2dp;
+                background: $search-bar-focus-color;
+                color: $search-bar-text-color;
+            }
+
+            &::placeholder { color: $tips-text-color }
+        }
+    }
+
+    &-scroll {
+        padding: 0 8px 8px;
+        background: $menu-bg-color;
+    }
+
+    &-category {
+        &-label span {
+            padding: 4px 6px;
+            background: $menu-bg-color;
+        }
+
+        .emoji-mart-emoji:hover::before { background-color: $icon-bg-hover-color }
+    }
+
+    &-no-results { color: $secondary-text-color }
+}

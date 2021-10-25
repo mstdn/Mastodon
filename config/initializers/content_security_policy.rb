@@ -27,12 +27,16 @@ if Rails.env.production?
 
   data_hosts.uniq!
 
+  # custom host
+  github_host = "https://raw.githubusercontent.com" # GitHub
+  google_fonts_host = "https://fonts.gstatic.com" # Google Fonts
+
   Rails.application.config.content_security_policy do |p|
     p.base_uri        :none
     p.default_src     :none
     p.frame_ancestors :none
     p.script_src      :self, assets_host
-    p.font_src        :self, assets_host
+    p.font_src        :self, assets_host, github_host, google_fonts_host
     p.img_src         :self, :data, :blob, *data_hosts
     p.style_src       :self, assets_host
     p.media_src       :self, :data, *data_hosts

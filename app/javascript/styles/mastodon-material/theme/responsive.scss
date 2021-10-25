@@ -1,0 +1,160 @@
+.tabs-bar {
+    background: $top-bar-color;
+
+    &__link {
+        padding: 16px 16px 12px 16px;
+        color: $tab-item-color;
+        border-bottom: 2px solid transparent;
+
+        &.active {
+            border-bottom: 2px solid $tab-item-active-color;
+            color: $tab-item-active-color;
+        }
+
+        .fa { font-size: 20px }
+
+        span {
+            margin-left: 8px;
+            vertical-align: text-bottom;
+        }
+    }
+
+    &__wrapper {
+        @include shadow-4dp;
+        background: transparent;
+    }
+}
+
+#tabs-bar__portal { overflow-y: hidden }
+
+.floating-action-button {
+    @include shadow-6dp;
+    background: $floating-action-button-color;
+    color: $floating-action-button-icon-color;
+    font-size: 24px;
+    width: $fab-size;
+    height: $fab-size;
+    bottom: 16px;
+    right: 16px;
+
+    &:hover { background: $floating-action-button-hover-color }
+
+    &:active,
+    &:focus { background: $floating-action-button-active-color }
+}
+
+.columns-area--mobile {
+    .column { margin: 0 !important }
+
+    .account__header {
+        &__account-note,
+        &__bio .account__header__content { padding: 8px 16px }
+    }
+
+    .search__input { padding: 16px 46px }
+
+    .search__icon {
+        .fa {
+            top: 16px;
+            left: 16px;
+        }
+
+        .fa-times-circle.active { left: unset }
+    }
+
+    .directory {
+        &__list {
+            grid-gap: 16px;
+            margin: 16px;
+        }
+
+        &__card { margin-bottom: 16px }
+    }
+}
+
+// small size screen
+@media screen and (max-width: 415px) {
+    .public-layout {
+        padding-top: 64px;
+
+        .header { margin: 0 }
+    }
+}
+
+// middle size screen
+@media screen and (min-width: 415px) {
+    .tabs-bar {
+        margin-bottom: 0;
+
+        &__wrapper {
+            padding-top: 0;
+
+            .tabs-bar { margin-bottom: 0 }
+        }
+    }
+
+    .columns-area__panels {
+        &__main {
+            @include shadow-1dp;
+            padding: 0;
+        }
+
+        &__pane { padding: 0 16px }
+    }
+}
+
+// single column mode
+@media screen and (min-width: 630px) {
+    .tabs-bar__link {
+        &:hover {
+            background: $tab-bg-hover-color;
+            border-bottom-color: transparent;
+        }
+
+        &:active,
+        &:focus {
+            background: $tab-bg-focus-color;
+            border-bottom-color: $tab-bg-color;
+        }
+
+        &.active { border-bottom-color: $tab-item-active-color }
+    }
+
+    .columns-area--mobile .status {
+        padding: 16px 16px 16px 80px;
+
+        &__prepend {
+            margin-left: 80px;
+            padding-top: 16px;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .admin-wrapper {
+        .sidebar {
+            ul {
+                background: $card-bg-color;
+                
+                a,
+                ul a { border-bottom: none }
+            }
+        }
+
+        .sidebar-wrapper { @include shadow-4dp }
+    }
+
+    .public-layout .public-account-header {
+        &__bar { background: $card-bg-color }
+
+        &__tabs {
+            margin-left: 16px;
+
+            &__name h1 {
+                color: $primary-text-color;
+    
+                small { color: $secondary-text-color }
+            }
+        }
+    }
+}
