@@ -4,6 +4,11 @@ class LinkDetailsExtractor
   include ActionView::Helpers::TagHelper
 
   class StructuredData
+    SUPPORTED_TYPES = %w(
+      NewsArticle
+      WebPage
+    ).freeze
+
     def initialize(data)
       @data = data
     end
@@ -14,6 +19,14 @@ class LinkDetailsExtractor
 
     def description
       json['description']
+    end
+
+    def language
+      json['inLanguage']
+    end
+
+    def type
+      json['@type']
     end
 
     def image
@@ -44,6 +57,10 @@ class LinkDetailsExtractor
       publisher['name']
     end
 
+    def publisher_logo
+      publisher.dig('logo', 'url')
+    end
+
     private
 
     def author
@@ -58,8 +75,12 @@ class LinkDetailsExtractor
       arr.is_a?(Array) ? arr.first : arr
     end
 
+    def root_array(root)
+      root.is_a?(Array) ? root : [root]
+    end
+
     def json
-      @json ||= Oj.load(@data)
+      @json ||= root_array(Oj.load(@data)).find { |obj| SUPPORTED_TYPES.include?(obj['@type']) } || {}
     end
   end
 
@@ -75,6 +96,7 @@ class LinkDetailsExtractor
       description: description || '',
       image_remote_url: image,
       type: type,
+      link_type: link_type,
       width: width || 0,
       height: height || 0,
       html: html || '',
@@ -83,11 +105,20 @@ class LinkDetailsExtractor
       author_name: author_name || '',
       author_url: author_url || '',
       embed_url: embed_url || '',
+      language: language,
     }
   end
 
   def type
     player_url.present? ? :video : :link
+  end
+
+  def link_type
+    if structured_data&.type == 'NewsArticle' || opengraph_tag('og:type') == 'article'
+      :article
+    else
+      :unknown
+    end
   end
 
   def html
@@ -138,6 +169,14 @@ class LinkDetailsExtractor
     valid_url_or_nil(opengraph_tag('twitter:player:stream'))
   end
 
+  def language
+    valid_locale_or_nil(structured_data&.language || opengraph_tag('og:locale') || document.xpath('//html').map { |element| element['lang'] }.first)
+  end
+
+  def icon
+    valid_url_or_nil(structured_data&.publisher_icon || link_tag('apple-touch-icon') || link_tag('shortcut icon'))
+  end
+
   private
 
   def player_url
@@ -162,6 +201,14 @@ class LinkDetailsExtractor
     nil
   end
 
+  def valid_locale_or_nil(str)
+    return nil if str.blank?
+
+    code,  = str.split(/_-/) # Strip out the region from e.g. en_US or ja-JA
+    locale = ISO_639.find(code)
+    locale&.alpha2
+  end
+
   def link_tag(name)
     document.xpath("//link[@rel=\"#{name}\"]").map { |link| link['href'] }.first
   end
@@ -178,6 +225,8 @@ class LinkDetailsExtractor
     @structured_data ||= begin
       json_ld = document.xpath('//script[@type="application/ld+json"]').map(&:content).first
       json_ld.present? ? StructuredData.new(json_ld) : nil
+    rescue Oj::ParseError
+      nil
     end
   end
 
