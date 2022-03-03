@@ -384,7 +384,6 @@ class Status < ApplicationRecord
 
       cached_items.each do |item|
         account_ids << item.account_id
-        Rails.logger.warn "DEBUG: #{item.reblog_of_id}" if item.reblog? && item.reblog.nil?
         account_ids << item.reblog.account_id if item.reblog?
       end
 
