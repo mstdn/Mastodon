@@ -1,0 +1,17 @@
+[Unit]
+Description=mastodon-sidekiq-push-%i
+After=network.target
+
+[Service]
+Type=simple
+User=mastodon
+WorkingDirectory=/mnt/sdb/mastodon/live
+Environment="RAILS_ENV=production"
+Environment="DB_POOL=25"
+Environment="MALLOC_ARENA_MAX=2"
+ExecStart=/home/mastodon/.rbenv/shims/bundle exec sidekiq -c 25 -q push
+TimeoutSec=15
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
