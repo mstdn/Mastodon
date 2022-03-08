@@ -1,7 +1,7 @@
 import inherited from 'mastodon/locales/nl.json';
 
 const messages = {
-  'getting_started.open_source_notice': 'Mastodon is gratis open source software. Je problemen melden via Gitlab {github}.',
+  'getting_started.open_source_notice': 'Mastodon is gratis open source software. Je problemen melden via GitHub {github}.',
   'layout.auto': 'Auto',
   'layout.current_is': 'Je huidige layout:',
   'layout.desktop': 'Desktop',
