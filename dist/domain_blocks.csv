@@ -1,0 +1,94 @@
+#domain,#severity,#reject_media,#reject_reports,#public_comment,#obfuscate
+honkwerx.tech,suspend,false,false,"Racist admin, yikes",true
+couter.social,suspend,false,false,"Admin stole and rebranded Mastodon source code, he's a thief. ",true
+freak.university,suspend,false,false,This instance is sharing images of children.,true
+youjo.love,suspend,false,false,This instance is sharing child abuse material. ,true
+solagg.com,suspend,false,false,Spam instance,true
+hentai.baby,suspend,false,false,This instance is sharing underage material. ,true
+baraag.net,suspend,false,false,This instance is sharing animated underage images.,true
+detroitriotcity.com,suspend,false,false,No post moderation / racist content,true
+kiwifarms.cc,suspend,false,false,This instance is sharing underage material.,true
+homoo.social,suspend,false,false,This instance is sharing underage material.,true
+m.anirloli.dev,suspend,false,false,This instance is posting animated underage material. ,true
+theautisticinvestors.quest,silence,true,true,Domain is being silenced for hate speech. ,true
+pleroma.soykaf.com,suspend,false,false,This instance is posting underage material.,true
+kinky.business,silence,false,false,Unmarked NSFW content.,true
+app.kenhbit.com,suspend,false,false,Crypto spam,true
+wintermute.fr.to,suspend,false,false,Instance posting illegal content.,true
+cassone.social,suspend,false,false,COVID-19 misinformation,true
+kinkyelephant.com,silence,false,false,Unmarked NSFW content.,true
+sinblr.com,silence,false,false,Unmarked NSFW content.,true
+truthsocial.com,suspend,false,false,"Trump's wild west social, no moderation",false
+censorship.icu,suspend,false,false,Conspiracy theory-based PeerTube instance.,true
+paypig.org,suspend,false,false,Trolling instance,true
+pokemon.men,silence,false,false,Spamming the public timelines.,true
+xn--p1abe3d.xn--80asehdb,suspend,false,false,Transphobic admin ,true
+wolfgirl.bar,suspend,false,false,Transphobia ,true
+switter.at,silence,false,false,Unmarked NSFW content.,true
+freewahaextremist.wtf,suspend,false,false,Admin provoking people,true
+activism.openworlds.info,suspend,false,false,Racism.,true
+cunny.finance,suspend,false,false,Loli content,true
+helladoge.com,suspend,false,false,Crypto spam but mostly just spam,false
+yggdrasil.social,suspend,false,false,Trolling instance ,true
+gab.com,suspend,false,false,We don’t want nazis.,true
+posting.lolicon.rocks,suspend,false,false,MAPs,true
+poa.st,suspend,true,false,Homophobic and Transphobic slurs,true
+bae.st,silence,true,false,Loli content,true
+monads.online,silence,false,false,This instance is posting offensive political content related to the Russia-Ukraine conflict. ,true
+freeatlantis.com,suspend,false,false,"Being suspended for racism, xenophobia, and conspiracy theories",true
+loli.pizza,suspend,false,false,Loli content,true
+pornssd.com,suspend,true,false,Uncensored NSFW,true
+pieville.net,suspend,false,false,Hate speech.,true
+glowers.club,suspend,false,false,Hate speech.,true
+social.urspringer.de,suspend,false,false,False information spreading. ,true
+glindr.org,suspend,false,false,Anti-trans slurs.,true
+parler.socialq.club,suspend,true,false,Fediverse replacement for Parler. ,true
+pleroma.miria.love,suspend,false,false,Loli content,true
+varishangout.net,suspend,false,false,Loli content,true
+brighteon.social,suspend,false,false,Conspiracy theories instance. ,true
+freespeechextremist.com,silence,false,false,Hate speech.,true
+social.byoblu.com,suspend,false,false,Spreading fake news.,true
+spinster.xyz,suspend,false,false,Anti-trans slurs.,true
+catgirl.life,suspend,false,false,Illegal content.,true
+shitposter.club,silence,false,false,Untagged NSFW content ,true
+theduran.icu,suspend,false,false,Right-wing conspiracy theory and misinformation.,true
+gameliberty.club,silence,false,false,Untagged NSFW content,true
+noagendasocial.com,suspend,false,false,Spreading conspiracy theories,true
+goyim.app,silence,true,false,Silencing this domain for content against marginalized groups. ,true
+*.mastodonhub.com,suspend,false,false,Spreading fake information purposely ,true
+moa.mastodonhub.com,suspend,false,false,Spreading fake information purposely ,true
+social.lovingexpressions.net,suspend,false,false,Suspended for hate speech and discrimination against marginalized groups.,true
+freespeech.group,suspend,false,false,Allows discriminatory language against marginalized groups of people.,true
+rakket.app,suspend,false,false,No moderation,true
+librenet.co.za,noop,true,false,"Antivaxx, racism and much more.",true
+freecumextremist.com,suspend,false,false,Unmarked NSFW content / No moderation. ,true
+ns.auction,suspend,false,false,Not human ,true
+soc.mahodou.moe,suspend,false,false,Racist hellhole,true
+beefyboys.win,suspend,false,false,Racists.,true
+ryona.agency,suspend,false,false,Trolls,false
+pleroma.nobodyhasthe.biz,suspend,false,false,Racist content ,true
+gleasonator.com,suspend,true,false,Lack of moderation from admin,true
+truthsocial.co.in,suspend,false,false,Trump fanbase,false
+masochi.st,suspend,false,false,Racist admin,true
+nnia.space,suspend,true,true,This instance is sharing child abuse material.,true
+pawoo.net,suspend,false,false,This instance is sharing underage material.,true
+rdrama.cc,suspend,false,false,Admin is making threats,true
+fedi.z0ne.moe,suspend,false,false,This instance is sharing underage material.,true
+respublicae.eu,silence,false,false,Bot-only instance flooding the public timelines.,false
+shigusegubu.club,suspend,false,false,This instance is sharing underage material.,true
+sneed.social,suspend,false,false,Racism,true
+vrij.social,suspend,false,false,Dutch alt-rights,false
+iddqd.social,suspend,false,false,Instance is using hateful and offensive content.,true
+eientei.org,suspend,false,false,Racist hate pool,true
+carnivore.social,suspend,false,false,Rightwing extremists,true
+buildthatwallandmakeamericagreatagain.trumpislovetrumpis.life,suspend,false,false,"Being suspended for racism, transphobia, and xenophobia.",true
+rapemeat.shop,suspend,false,false,Gore instance. ,true
+cum.salon,suspend,false,false,Instance is anti-transgender and also shares other offensive material. ,true
+chungus.cc,suspend,false,false,Racist shithole ,true
+pl.gamers.exposed,suspend,false,false,Racist slurs by admin,true
+social.getgle.org,suspend,false,false,Being suspended for racism and transphobia,true
+terrible.place,suspend,false,false,This domain is being suspended for hate speech and images. ,true
+nicecrew.digital,suspend,false,false,Being suspended for harassment of transgender people and other marginalized groups.,true
+d-fens.systems,suspend,false,false,Weird bot domain,false
+libranet.de,suspend,false,false,This domain is being suspended for hate speech and images. ,true
+truthsocialpro.org,suspend,false,false,Racist/homophobic/transphobic,true
