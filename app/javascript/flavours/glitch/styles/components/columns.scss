@@ -201,7 +201,7 @@
     }
 
     &.active {
-      color: $ui-highlight-color;
+      color: $highlight-text-color;
     }
   }
 }
@@ -822,7 +822,6 @@
   padding: 40px;
 
   .logo {
-    fill: $primary-text-color;
     width: 50px;
     margin: 0 auto;
     margin-bottom: 40px;

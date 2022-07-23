@@ -51,22 +51,16 @@
   text-align: center;
   text-decoration: none;
   text-overflow: ellipsis;
-  transition: all 100ms ease-in;
-  transition-property: background-color;
   white-space: nowrap;
   width: auto;
 
   &:active,
   &:focus,
   &:hover {
-    background-color: lighten($ui-highlight-color, 7%);
-    transition: all 200ms ease-out;
-    transition-property: background-color;
+    background-color: $ui-highlight-color;
   }
 
   &--destructive {
-    transition: none;
-
     &:active,
     &:focus,
     &:hover {
@@ -239,16 +233,21 @@
   }
 }
 
+.text-icon,
+.text-icon-button {
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 27px;
+  cursor: default;
+}
+
 .text-icon-button {
   color: $lighter-text-color;
   border: 0;
   border-radius: 4px;
   background: transparent;
   cursor: pointer;
-  font-weight: 600;
-  font-size: 11px;
   padding: 0 3px;
-  line-height: 27px;
   outline: 0;
   transition: all 100ms ease-in;
   transition-property: background-color, color;
@@ -443,8 +442,12 @@
     object-fit: contain;
   }
 
-  .loading-bar {
+  .loading-bar__container {
     position: relative;
+  }
+
+  .loading-bar {
+    position: absolute;
   }
 
   &.image-loader--amorphous .image-loader__preview-canvas {
@@ -911,11 +914,11 @@
 }
 
 .react-toggle--checked .react-toggle-track {
-  background-color: $ui-highlight-color;
+  background-color: darken($ui-highlight-color, 2%);
 }
 
 .react-toggle--checked:is(:hover, :focus-within):not(.react-toggle--disabled) .react-toggle-track {
-  background-color: lighten($ui-highlight-color, 10%);
+  background-color: $ui-highlight-color;
 }
 
 .react-toggle-track-check {
@@ -1211,14 +1214,14 @@ button.icon-button.active i.fa-retweet {
   }
 
   a {
-    color: lighten($ui-highlight-color, 8%);
+    color: $highlight-text-color;
     text-decoration: none;
 
     &:hover,
     &:focus,
     &:active {
       text-decoration: underline;
-      color: lighten($ui-highlight-color, 12%);
+      color: lighten($highlight-text-color, 4%);
     }
   }
 }

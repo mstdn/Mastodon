@@ -247,6 +247,10 @@ code {
     }
   }
 
+  .input.with_block_label.user_role_permissions_as_keys ul {
+    columns: unset;
+  }
+
   .input.datetime .label_input select {
     display: inline-block;
     width: auto;
@@ -454,14 +458,14 @@ code {
     width: 100%;
     border: 0;
     border-radius: 4px;
-    background: $ui-highlight-color;
+    background: darken($ui-highlight-color, 2%);
     color: $primary-text-color;
     font-size: 18px;
     line-height: inherit;
     height: auto;
     padding: 10px;
-    text-transform: uppercase;
     text-decoration: none;
+    text-transform: uppercase;
     text-align: center;
     box-sizing: border-box;
     cursor: pointer;
@@ -474,13 +478,10 @@ code {
       margin-right: 0;
     }
 
-    &:hover {
-      background-color: lighten($ui-highlight-color, 5%);
-    }
-
     &:active,
-    &:focus {
-      background-color: darken($ui-highlight-color, 5%);
+    &:focus,
+    &:hover {
+      background-color: $ui-highlight-color;
     }
 
     &:disabled:hover {
@@ -1066,5 +1067,36 @@ code {
       border-bottom: 0;
       padding-bottom: 0;
     }
+  }
+}
+
+.keywords-table {
+  thead {
+    th {
+      white-space: nowrap;
+    }
+
+    th:first-child {
+      width: 100%;
+    }
+  }
+
+  tfoot {
+    td {
+      border: 0;
+    }
+  }
+
+  .input.string {
+    margin-bottom: 0;
+  }
+
+  .label_input__wrapper {
+    margin-top: 10px;
+  }
+
+  .table-action-link {
+    margin-top: 10px;
+    white-space: nowrap;
   }
 }
