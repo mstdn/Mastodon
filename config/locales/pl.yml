@@ -695,6 +695,11 @@ pl:
       edit: Edytuj rolę '%{name}'
       everyone: Domyślnie uprawnienia
       everyone_full_description_html: To jest <strong>rola podstawowa</strong> wpływająca na <strong>wszystkich użytkowników</strong>, nawet tych, którzy nie mają przypisanej roli. Wszystkie inne role dziedziczą z niej uprawnienia.
+      permissions_count:
+        few: "%{count} uprawnień"
+        many: "%{count} uprawnień"
+        one: "%{count} uprawnienie"
+        other: "%{count} uprawnień"
       privileges:
         administrator: Administrator
         administrator_description: Użytkownicy z tym uprawnieniem omijają każde uprawnienie
@@ -725,11 +730,15 @@ pl:
         manage_taxonomies: Zarządzaj taksonomiami
         manage_taxonomies_description: Pozwala użytkownikom przeglądać najpopularniejsze treści i aktualizować ustawienia hasztagów
         manage_user_access: Zarządzaj dostępem użytkownika
+        manage_user_access_description: Pozwala użytkownikom na wyłączenie uwierzytelniania dwuskładnikowego innych użytkowników, zmianę adresu e-mail i zresetowanie hasła
         manage_users: Zarządzanie użytkownikami
+        manage_users_description: Pozwala użytkownikom na oglądanie szczegółów innych użytkowników i wykonywanie na ich kontach działań moderacyjnych
         manage_webhooks: Zarządzanie webhookami
+        manage_webhooks_description: Pozwala użytkownikom na konfigurację webhooków dla wydarzeń administracyjnych
         view_audit_log: Wyświetl dziennik zdarzeń
         view_audit_log_description: Pozwala użytkownikom zobaczyć historię działań administracyjnych na serwerze
         view_dashboard: Wyświetl panel
+        view_dashboard_description: Pozwala użytkownikom na dostęp do panelu i różnych metryk
         view_devops: Devops
         view_devops_description: Pozwala użytkownikom na dostęp do paneli Sidekiq i pgHero
       title: Role
@@ -1212,6 +1221,8 @@ pl:
     edit:
       add_keyword: Dodaj słowo kluczowe
       keywords: Słowa kluczowe
+      statuses: Pojedyncze wpisy
+      statuses_hint_html: Ten filtr ma zastosowanie do wybierania poszczególnych postów niezależnie od tego, czy pasują one do słów kluczowych poniżej. Możesz przejrzeć te posty i usunąć je z filtra <a href="%{path}">klikając tutaj</a>.
       title: Edytuj filtr
     errors:
       deprecated_api_multiple_keywords: Te parametry nie mogą zostać zmienione z tej aplikacji, ponieważ dotyczą więcej niż jednego słowa kluczowego. Użyj nowszej wersji aplikacji lub interfejsu internetowego.
@@ -1231,6 +1242,13 @@ pl:
     new:
       save: Zapisz jako nowy filtr
       title: Dodaj nowy filtr
+    statuses:
+      back_to_filter: Powrót do filtra
+      batch:
+        remove: Usuń z filtra
+      index:
+        hint: Ten filtr ma zastosowanie do wybierania poszczególnych postów niezależnie od innych kryteriów. Możesz dodać więcej postów do tego filtra z interfejsu WWW.
+        title: Filtrowane posty
   footer:
     developers: Dla programistów
     more: Więcej…
