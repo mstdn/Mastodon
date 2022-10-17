@@ -10,13 +10,13 @@ import AttachmentList from './attachment_list';
 import Card from '../features/status/components/card';
 import { injectIntl, FormattedMessage } from 'react-intl';
 import ImmutablePureComponent from 'react-immutable-pure-component';
-import { MediaGallery, Video, Audio } from 'flavours/glitch/util/async-components';
+import { MediaGallery, Video, Audio } from '../features/ui/util/async-components';
 import { HotKeys } from 'react-hotkeys';
 import NotificationOverlayContainer from 'flavours/glitch/features/notifications/containers/overlay_container';
 import classNames from 'classnames';
-import { autoUnfoldCW } from 'flavours/glitch/util/content_warning';
+import { autoUnfoldCW } from 'flavours/glitch/utils/content_warning';
 import PollContainer from 'flavours/glitch/containers/poll_container';
-import { displayMedia } from 'flavours/glitch/util/initial_state';
+import { displayMedia } from 'flavours/glitch/initial_state';
 import PictureInPicturePlaceholder from 'flavours/glitch/components/picture_in_picture_placeholder';
 
 // We use the component (and not the container) since we do not want
@@ -83,6 +83,7 @@ class Status extends ImmutablePureComponent {
     onEmbed: PropTypes.func,
     onHeightChange: PropTypes.func,
     onToggleHidden: PropTypes.func,
+    onInteractionModal: PropTypes.func,
     muted: PropTypes.bool,
     hidden: PropTypes.bool,
     unread: PropTypes.bool,
@@ -99,8 +100,11 @@ class Status extends ImmutablePureComponent {
     onClick: PropTypes.func,
     scrollKey: PropTypes.string,
     deployPictureInPicture: PropTypes.func,
-    usingPiP: PropTypes.bool,
     settings: ImmutablePropTypes.map.isRequired,
+    pictureInPicture: PropTypes.shape({
+      inUse: PropTypes.bool,
+      available: PropTypes.bool,
+    }),
   };
 
   state = {
@@ -126,7 +130,7 @@ class Status extends ImmutablePureComponent {
     'hidden',
     'expanded',
     'unread',
-    'usingPiP',
+    'pictureInPicture',
   ]
 
   updateOnStates = [
@@ -503,7 +507,7 @@ class Status extends ImmutablePureComponent {
       hidden,
       unread,
       featured,
-      usingPiP,
+      pictureInPicture,
       ...other
     } = this.props;
     const { isCollapsed, forceFilter } = this.state;
@@ -595,7 +599,7 @@ class Status extends ImmutablePureComponent {
 
     attachments = status.get('media_attachments');
 
-    if (usingPiP) {
+    if (pictureInPicture.inUse) {
       media.push(<PictureInPicturePlaceholder width={this.props.cachedMediaWidth} />);
       mediaIcons.push('video-camera');
     } else if (attachments.size > 0) {
@@ -623,7 +627,7 @@ class Status extends ImmutablePureComponent {
                 width={this.props.cachedMediaWidth}
                 height={110}
                 cacheWidth={this.props.cacheMediaWidth}
-                deployPictureInPicture={this.handleDeployPictureInPicture}
+                deployPictureInPicture={pictureInPicture.available ? this.handleDeployPictureInPicture : undefined}
                 sensitive={status.get('sensitive')}
                 blurhash={attachment.get('blurhash')}
                 visible={this.state.showMedia}
@@ -652,7 +656,7 @@ class Status extends ImmutablePureComponent {
               onOpenVideo={this.handleOpenVideo}
               width={this.props.cachedMediaWidth}
               cacheWidth={this.props.cacheMediaWidth}
-              deployPictureInPicture={this.handleDeployPictureInPicture}
+              deployPictureInPicture={pictureInPicture.available ? this.handleDeployPictureInPicture : undefined}
               visible={this.state.showMedia}
               onToggleVisibility={this.handleToggleMediaVisibility}
             />)}

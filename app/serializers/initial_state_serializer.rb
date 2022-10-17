@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class InitialStateSerializer < ActiveModel::Serializer
+  include RoutingHelper
+
   attributes :meta, :compose, :accounts,
              :media_attachments, :settings,
              :max_toot_chars, :poll_limits,
@@ -22,22 +24,24 @@ class InitialStateSerializer < ActiveModel::Serializer
     }
   end
 
+  # rubocop:disable Metrics/AbcSize
   def meta
     store = {
       streaming_api_base_url: Rails.configuration.x.streaming_api_base_url,
       access_token: object.token,
       locale: I18n.locale,
-      domain: Rails.configuration.x.local_domain,
-      title: instance_presenter.site_title,
+      domain: instance_presenter.domain,
+      title: instance_presenter.title,
       admin: object.admin&.id&.to_s,
       search_enabled: Chewy.enabled?,
       repository: Mastodon::Version.repository,
-      source_url: Mastodon::Version.source_url,
-      version: Mastodon::Version.to_s,
+      source_url: instance_presenter.source_url,
+      version: instance_presenter.version,
       limited_federation_mode: Rails.configuration.x.whitelist_mode,
       mascot: instance_presenter.mascot&.file&.url,
       profile_directory: Setting.profile_directory,
       trends: Setting.trends,
+      registrations_open: Setting.registrations_mode != 'none' && !Rails.configuration.x.single_user_mode,
     }
 
     if object.current_account
@@ -68,6 +72,7 @@ class InitialStateSerializer < ActiveModel::Serializer
 
     store
   end
+  # rubocop:enable Metrics/AbcSize
 
   def compose
     store = {}

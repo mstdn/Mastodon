@@ -5,10 +5,15 @@ import SearchContainer from 'mastodon/features/compose/containers/search_contain
 import ComposeFormContainer from 'mastodon/features/compose/containers/compose_form_container';
 import NavigationContainer from 'mastodon/features/compose/containers/navigation_container';
 import LinkFooter from './link_footer';
+import ServerBanner from 'mastodon/components/server_banner';
 import { changeComposing } from 'mastodon/actions/compose';
 
 export default @connect()
 class ComposePanel extends React.PureComponent {
+
+  static contextTypes = {
+    identity: PropTypes.object.isRequired,
+  };
 
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
@@ -23,11 +28,26 @@ class ComposePanel extends React.PureComponent {
   }
 
   render() {
+    const { signedIn } = this.context.identity;
+
     return (
       <div className='compose-panel' onFocus={this.onFocus}>
         <SearchContainer openInRoute />
-        <NavigationContainer onClose={this.onBlur} />
-        <ComposeFormContainer singleColumn />
+
+        {!signedIn && (
+          <React.Fragment>
+            <ServerBanner />
+            <div className='flex-spacer' />
+          </React.Fragment>
+        )}
+
+        {signedIn && (
+          <React.Fragment>
+            <NavigationContainer onClose={this.onBlur} />
+            <ComposeFormContainer singleColumn />
+          </React.Fragment>
+        )}
+
         <LinkFooter withHotkeys />
       </div>
     );

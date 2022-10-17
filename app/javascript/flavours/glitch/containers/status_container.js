@@ -36,8 +36,8 @@ import { openModal } from 'flavours/glitch/actions/modal';
 import { deployPictureInPicture } from 'flavours/glitch/actions/picture_in_picture';
 import { changeLocalSetting } from 'flavours/glitch/actions/local_settings';
 import { defineMessages, injectIntl, FormattedMessage } from 'react-intl';
-import { boostModal, favouriteModal, deleteModal } from 'flavours/glitch/util/initial_state';
-import { filterEditLink } from 'flavours/glitch/util/backend_links';
+import { boostModal, favouriteModal, deleteModal } from 'flavours/glitch/initial_state';
+import { filterEditLink } from 'flavours/glitch/utils/backend_links';
 import { showAlertForError } from '../actions/alerts';
 import AccountContainer from 'flavours/glitch/containers/account_container';
 import Spoilers from '../components/spoilers';
@@ -76,12 +76,16 @@ const makeMapStateToProps = () => {
     }
 
     return {
-      containerId : props.containerId || props.id,  //  Should match reblogStatus's id for reblogs
-      status      : status,
-      account     : account || props.account,
-      settings    : state.get('local_settings'),
-      prepend     : prepend || props.prepend,
-      usingPiP    : state.get('picture_in_picture').statusId === props.id,
+      containerId: props.containerId || props.id,  //  Should match reblogStatus's id for reblogs
+      status: status,
+      account: account || props.account,
+      settings: state.get('local_settings'),
+      prepend: prepend || props.prepend,
+
+      pictureInPicture: {
+        inUse: state.getIn(['meta', 'layout']) !== 'mobile' && state.get('picture_in_picture').statusId === props.id,
+        available: state.getIn(['meta', 'layout']) !== 'mobile',
+      },
     };
   };
 
@@ -238,6 +242,14 @@ const mapDispatchToProps = (dispatch, { intl, contextType }) => ({
         dispatch(deployPictureInPicture(status.get('id'), status.getIn(['account', 'id']), type, mediaProps));
       }
     });
+  },
+
+  onInteractionModal (type, status) {
+    dispatch(openModal('INTERACTION', {
+      type,
+      accountId: status.getIn(['account', 'id']),
+      url: status.get('url'),
+    }));
   },
 
 });

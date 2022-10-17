@@ -414,6 +414,8 @@ Rails.application.routes.draw do
 
           resource :history, only: :show
           resource :source, only: :show
+
+          post :translate, to: 'translations#create'
         end
 
         member do
@@ -637,10 +639,12 @@ Rails.application.routes.draw do
     end
 
     namespace :v2 do
-      resources :media, only: [:create]
       get '/search', to: 'search#index', as: :search
+
+      resources :media,       only: [:create]
       resources :suggestions, only: [:index]
       resources :filters,     only: [:index, :create, :show, :update, :destroy]
+      resource  :instance,    only: [:show]
 
       namespace :admin do
         resources :accounts, only: [:index]
@@ -662,7 +666,9 @@ Rails.application.routes.draw do
 
   get '/about',        to: 'about#show'
   get '/about/more',   to: 'about#more'
-  get '/terms',        to: 'about#terms'
+
+  get '/privacy-policy', to: 'privacy#show', as: :privacy_policy
+  get '/terms',          to: redirect('/privacy-policy')
 
   match '/', via: [:post, :put, :patch, :delete], to: 'application#raise_not_found', format: false
   match '*unmatched_route', via: :all, to: 'application#raise_not_found', format: false

@@ -110,6 +110,27 @@
     &:hover {
       border-color: lighten($ui-primary-color, 4%);
       color: lighten($darker-text-color, 4%);
+      text-decoration: none;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
+
+  &.button-tertiary {
+    background: transparent;
+    padding: 6px 17px;
+    color: $highlight-text-color;
+    border: 1px solid $highlight-text-color;
+
+    &:active,
+    &:focus,
+    &:hover {
+      background: $ui-highlight-color;
+      color: $primary-text-color;
+      border: 0;
+      padding: 7px 18px;
     }
 
     &:disabled {
@@ -862,6 +883,10 @@
     flex: 1 1 auto;
     position: relative;
     min-height: 120px;
+  }
+
+  .scrollable {
+    flex: 1 1 auto;
   }
 }
 
@@ -1751,3 +1776,5 @@ noscript {
 @import 'error_boundary';
 @import 'single_column';
 @import 'announcements';
+@import 'explore';
+@import 'signed_out';

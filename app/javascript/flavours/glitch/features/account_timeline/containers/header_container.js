@@ -21,7 +21,7 @@ import { openModal } from 'flavours/glitch/actions/modal';
 import { blockDomain, unblockDomain } from 'flavours/glitch/actions/domain_blocks';
 import { initEditAccountNote } from 'flavours/glitch/actions/account_notes';
 import { defineMessages, injectIntl, FormattedMessage } from 'react-intl';
-import { unfollowModal } from 'flavours/glitch/util/initial_state';
+import { unfollowModal } from 'flavours/glitch/initial_state';
 
 const messages = defineMessages({
   unfollowConfirm: { id: 'confirmations.unfollow.confirm', defaultMessage: 'Unfollow' },
@@ -56,6 +56,14 @@ const mapDispatchToProps = (dispatch, { intl }) => ({
     } else {
       dispatch(followAccount(account.get('id')));
     }
+  },
+
+  onInteractionModal (account) {
+    dispatch(openModal('INTERACTION', {
+      type: 'follow',
+      accountId: account.get('id'),
+      url: account.get('url'),
+    }));
   },
 
   onBlock (account) {
@@ -130,8 +138,14 @@ const mapDispatchToProps = (dispatch, { intl }) => ({
     dispatch(unblockDomain(domain));
   },
 
-  onAddToList(account){
+  onAddToList (account) {
     dispatch(openModal('LIST_ADDER', {
+      accountId: account.get('id'),
+    }));
+  },
+
+  onChangeLanguages (account) {
+    dispatch(openModal('SUBSCRIBED_LANGUAGES', {
       accountId: account.get('id'),
     }));
   },

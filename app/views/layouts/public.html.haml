@@ -13,7 +13,7 @@
             - unless whitelist_mode?
               = link_to t('directories.directory'), explore_path, class: 'nav-link optional' if Setting.profile_directory
               = link_to t('about.about_this'), about_more_path, class: 'nav-link optional'
-              = link_to t('about.apps'), 'https://mstdn.social/about/more#apps', class: 'nav-link optional'
+              = link_to t('about.apps'), 'https://joinmastodon.org/apps', class: 'nav-link optional'
 
           .nav-center
 
@@ -32,15 +32,14 @@
           .column-0
             %h4= t 'footer.resources'
             %ul
-              %li= link_to 'Terms & Privacy','https://mstdn.social/terms'
-              %li= link_to 'More Info','https://hub.mstdn.social/'
+              %li= link_to t('about.privacy_policy'), privacy_policy_path
           .column-1
             %h4= t 'footer.developers'
             %ul
               %li= link_to t('about.documentation'), 'https://docs.joinmastodon.org/'
               %li= link_to t('about.api'), 'https://docs.joinmastodon.org/client/intro/'
           .column-2
-            %h4= link_to t('about.what_is_mastodon'), 'https://mstdn.social/about/more#what-is-mastodon'
+            %h4= link_to t('about.what_is_mastodon'), 'https://joinmastodon.org/'
             = link_to logo_as_symbol, root_url, class: 'brand'
           .column-3
             %h4= site_hostname
@@ -52,10 +51,10 @@
             %h4= t 'footer.more'
             %ul
               %li= link_to t('about.source_code'), Mastodon::Version.source_url
-              %li= link_to t('about.apps'), 'https://mstdn.social/about/more#apps'
+              %li= link_to t('about.apps'), 'https://joinmastodon.org/apps'
         .legal-xs
           = link_to "v#{Mastodon::Version.to_s}", Mastodon::Version.source_url
           ·
-          = link_to t('about.privacy_policy'), terms_path
+          = link_to t('about.privacy_policy'), privacy_policy_path
 
 = render template: 'layouts/application'
