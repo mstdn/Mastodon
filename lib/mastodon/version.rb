@@ -33,7 +33,7 @@ module Mastodon
     end
 
     def repository
-      ENV.fetch('GITHUB_REPOSITORY', 'mstdn/Mastodon')
+      ENV.fetch('GITHUB_REPOSITORY', 'jwbjnwolf/Mastodon')
     end
 
     def source_base_url
