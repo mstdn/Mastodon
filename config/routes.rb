@@ -48,7 +48,7 @@ Rails.application.routes.draw do
     end
   end
 
-  devise_for :users, path: 'auth', controllers: {
+  devise_for :users, path: 'auth', format: false, controllers: {
     omniauth_callbacks: 'auth/omniauth_callbacks',
     sessions:           'auth/sessions',
     registrations:      'auth/registrations',
@@ -192,7 +192,7 @@ Rails.application.routes.draw do
   resource :statuses_cleanup, controller: :statuses_cleanup, only: [:show, :update]
 
   get '/public', to: 'public_timelines#show', as: :public_timeline
-  get '/media_proxy/:id/(*any)', to: 'media_proxy#show', as: :media_proxy
+  get '/media_proxy/:id/(*any)', to: 'media_proxy#show', as: :media_proxy, format: false
 
   resource :authorize_interaction, only: [:show, :create]
   resource :share, only: [:show, :create]
@@ -387,7 +387,7 @@ Rails.application.routes.draw do
 
   get '/admin', to: redirect('/admin/dashboard', status: 302)
 
-  namespace :api do
+  namespace :api, format: false do
     # OEmbed
     get '/oembed', to: 'oembed#show', as: :oembed
 
